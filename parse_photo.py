@@ -18,6 +18,7 @@ def parse_photo(url):
         for item in json_:
             if item['key'] == 'defaultState':
                 description = item['value']['offerData']['offer']['description']
+                flat_id = item['value']['offerData']['offer']['cianId']
                 area = item['value']['offerData']['offer']['totalArea']
                 floor = item['value']['offerData']['offer']['floorNumber']
                 price = item['value']['offerData']['offer']['bargainTerms']['price']
@@ -28,6 +29,6 @@ def parse_photo(url):
                     photos.append(photo['fullUrl'])
                 break
     if photos:
-        return title1, title2, description, photos
+        return flat_id, title1, title2, description, photos
     else:
         return -2
