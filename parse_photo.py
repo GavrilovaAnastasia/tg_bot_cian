@@ -11,7 +11,6 @@ def parse_photo(url):
         start = html.index(start_json_template) + len(start_json_template)
         end = html.index('</script>', start) - 2
         json_raw = html[start:end].strip()[:-1]
-        print(json_raw)
         json_ = json.loads(json_raw)
         for item in json_:
             if item['key'] == 'defaultState':
@@ -26,3 +25,8 @@ def parse_photo(url):
                     photos.append(photo['fullUrl'])
                 break
     return title1, title2, description, photos
+
+url = 'https://www.cian.ru/rent/flat/293602118/'
+url2 = 'https://www.cian.ru/rent/flat/294228797/'
+title1, title2, description, photos = parse_photo(url2)
+print(photos)
