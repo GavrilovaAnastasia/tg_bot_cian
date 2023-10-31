@@ -13,7 +13,6 @@ def get_from_env(key):
   # load_dotenv(dotenv_path)
   return os.environ.get(key)
 
-
 token = get_from_env('BOT_TOKEN')
 bot = telebot.TeleBot(token)
 
