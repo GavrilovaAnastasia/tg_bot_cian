@@ -4,8 +4,11 @@ import json
 def parse_photo(url):
     start_json_template = "window._cianConfig['frontend-offer-card'] = (window._cianConfig['frontend-offer-card'] || []).concat("
     photos = []
+    try:
+        response = requests.get(url)
+    except requests.ConnectionError:
+        return -1
 
-    response = requests.get(url)
     html = response.text
     if start_json_template in html:
         start = html.index(start_json_template) + len(start_json_template)
@@ -24,4 +27,7 @@ def parse_photo(url):
                 for photo in item['value']['offerData']['offer']['photos']:
                     photos.append(photo['fullUrl'])
                 break
-    return title1, title2, description, photos
+    if photos:
+        return title1, title2, description, photos
+    else:
+        return -2
