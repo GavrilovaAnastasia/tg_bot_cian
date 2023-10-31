@@ -25,8 +25,3 @@ def parse_photo(url):
                     photos.append(photo['fullUrl'])
                 break
     return title1, title2, description, photos
-
-url = 'https://www.cian.ru/rent/flat/293602118/'
-url2 = 'https://www.cian.ru/rent/flat/294228797/'
-title1, title2, description, photos = parse_photo(url2)
-print(photos)
