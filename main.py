@@ -1,17 +1,17 @@
 import telebot
 from telebot.types import InputMediaPhoto
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 import os
 from os.path import join, dirname
 import re
 from parse_photo import parse_photo
 
 def get_from_env(key):
-  dotenv_path = join(dirname(__file__), 'token.env')
-  load_dotenv(dotenv_path)
+  # dotenv_path = join(dirname(__file__), 'token.env')
+  # load_dotenv(dotenv_path)
   return os.environ.get(key)
 
-token = get_from_env('TG_BOT_TOKEN')
+token = get_from_env('BOT_TOKEN')
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
