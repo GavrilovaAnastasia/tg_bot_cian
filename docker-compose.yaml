@@ -2,7 +2,7 @@ version: '3.8'
 services:
   cianbot:
     container_name: cianbot 
-    image: cianbot:v0.1.0
+    image: cianbot:v0.2.0
     restart: always
     env_file:
       - ".env"
